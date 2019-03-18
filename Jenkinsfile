@@ -24,8 +24,8 @@ node {
         sh "ng test"
     }
 
-    stage('protractor tests') {
-        sh "ng e2e"
+    stage('Create artifact') {
+        sh "tar czvf dist.tar.gz dist"
     }
 
     stage('deploying') {
