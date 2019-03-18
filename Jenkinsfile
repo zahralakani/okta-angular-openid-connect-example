@@ -20,11 +20,8 @@ node {
    stage ('run angular project'){
       sh "npm run ng build"
    }
-    stage('unit tests') {
-        sh "ng test"
-    }
-
-    stage('Create artifact') {
+   
+   stage('Create artifact') {
         sh "tar czvf dist.tar.gz dist"
     }
 
