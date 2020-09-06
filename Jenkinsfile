@@ -3,8 +3,8 @@ node {
     env.PATH = "${nodeHome}/bin:${env.PATH}"
 
     stage('check tools') {
-        sh "node -v"
-        sh "npm -v"
+        bat "node -v"
+        bat "npm -v"
     }
 
     stage('checkout') {
@@ -12,17 +12,17 @@ node {
     }
 
     stage('npm install') {
-        sh "npm install"
+        bat "npm install"
     }
     stage ('npm install angular'){
-      sh "npm install -g @angular/cli@latest"
+      bat "npm install -g @angular/cli@latest"
    }
    stage ('run angular project'){
-      sh "npm run ng build"
+      bat "npm run ng build"
    }
    
    stage('Create artifact') {
-        sh "tar czvf dist.tar.gz dist"
+        bat "tar czvf dist.tar.gz dist"
     }
 
 }
